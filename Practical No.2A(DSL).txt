@@ -1,0 +1,59 @@
+def string_operations(s, char, substring):
+    # a) To display word with the longest length
+    def longest_word(s):
+        words = s.split()
+        max_length = 0
+        longest = ""
+        for word in words:
+            if len(word) > max_length:
+                max_length = len(word)
+                longest = word
+        return longest
+
+    # b) To determine the frequency of occurrence of a particular character in the string
+    def char_frequency(s, char):
+        return s.count(char)
+
+    # c) To check if the given string is a palindrome or not
+    def is_palindrome(s):
+        s = s.replace(" ", "").lower()  # Removing spaces and converting to lowercase for accurate comparison
+        return s == s[::-1]
+
+    # d) To display index of the first occurrence of a substring
+    def index_of_substring(s, substring):
+        return s.find(substring)
+
+    # e) To count the occurrences of each word in the string
+    def word_occurrences(s):
+        words = s.split()
+        word_count = {}
+        for word in words:
+            word = word.lower()
+            if word in word_count:
+                word_count[word] += 1
+            else:
+                word_count[word] = 1
+        return word_count
+
+    # Results
+    results = {
+        "longest_word": longest_word(s),
+        "char_frequency": char_frequency(s, char),
+        "is_palindrome": is_palindrome(s),
+        "index_of_substring": index_of_substring(s, substring),
+        "word_occurrences": word_occurrences(s)
+    }
+
+    return results
+
+# Example usage
+string = "A man a plan a canal Panama"
+character = 'a'
+substring = "plan"
+
+results = string_operations(string, character, substring)
+print("Word with the longest length:", results["longest_word"])
+print(f"Frequency of character '{character}':", results["char_frequency"])
+print("Is the string a palindrome?", results["is_palindrome"])
+print(f"Index of the first occurrence of substring '{substring}':", results["index_of_substring"])
+print("Occurrences of each word:", results["word_occurrences"])
