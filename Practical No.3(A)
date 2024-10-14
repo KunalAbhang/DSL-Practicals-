@@ -1,0 +1,62 @@
+#Write a Python program that determines the location of a saddle point of
+#matrix if one exists. An m x n matrix is said to have a saddle point if some
+#entry a[i][j] is the smallest value in row i & the largest value in j.
+
+#  m = [ [3,-8,5],
+#      [2,1,9] ]
+
+r = int(input("Enter row count: "))
+c = int(input("Enter col count: "))
+
+m=[[0 for i in range (c)] for i in range(r)]
+      
+for i in range(r):
+    for j in range(c):
+        
+          m[i][j] = int(input(f"Enter value for m[{i}][{j}]: "))
+      
+      
+      
+def min_val(l):
+    min_row = l[0]
+    for i in l:
+        if i < min_row:
+            min_row = i 
+            
+    return min_row
+        
+def max_val(l):
+    max_col = l[0]
+    for i in l:
+        if i > max_col:
+            max_col = i 
+            
+    return max_col
+
+row_min_list = []
+col_max_list = []
+
+for row in m :
+    row_min_list.append( min_val(row))
+    
+row=len(m)
+col= len(m[0])   
+
+for i in range(col):
+    
+    col_list = []
+    
+    for j in range(row):
+        
+        col_list.append(m[j][i])
+        
+    col_max_list.append(max_val(col_list))
+    
+print(row_min_list,col_max_list)
+
+for i in range(len(row_min_list)):
+    num = row_min_list[i]
+    if num in col_max_list:
+        j = col_max_list.index(num)
+        print(f"Saddle Value: a[{i}][{j}]{num}")
+        
