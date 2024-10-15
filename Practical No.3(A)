@@ -2,8 +2,8 @@
 #matrix if one exists. An m x n matrix is said to have a saddle point if some
 #entry a[i][j] is the smallest value in row i & the largest value in j.
 
-#  m = [ [3,-8,5],
-#      [2,1,9] ]
+m = [[3, -8, 5],
+     [2, 1, 9]]
 
 r = int(input("Enter row count: "))
 c = int(input("Enter col count: "))
